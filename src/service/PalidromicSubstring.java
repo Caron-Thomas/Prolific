@@ -12,7 +12,7 @@ public class PalidromicSubstring {
 		{
 			for (int j = i; j < str.length(); j++) 
 			{
-				subString = str.substring(i, j+ 1);
+				subString = str.substring(i, j + 1);
 				
 				if( isPalindromic(subString))
 					biggestSubstring = biggestSubstring.length() > subString.length()
