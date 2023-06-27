@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import service.LargestFour;
 import service.PalidromicSubstring;
+import service.RigthMost;
 import service.RunLength;
 
 public class exersDessa {
@@ -12,7 +13,8 @@ public class exersDessa {
 	{
 		boolean run1 = false;
 		boolean run2 = false;
-		boolean run3 = true;
+		boolean run3 = false;
+		boolean run4 = true;
 		System.out.println( "Start." );
 		
 		while ( run1 )
@@ -42,6 +44,13 @@ public class exersDessa {
 			run3 = s.next().equals("y") ? false : true;
 		}
 		
+		while( run4 )
+		{
+			Scanner s   = new Scanner( System.in );
+			System.out.println(RigthMost.rightMost());
+			System.out.println("End? -> y para terminar"   );
+			run4 = s.next().equals("y") ? false : true;
+		}
 		System.out.println("End."); 
 	}
 }
