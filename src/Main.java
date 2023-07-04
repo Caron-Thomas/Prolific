@@ -35,6 +35,9 @@ public class Main {
 				  System.out.printf("O processo 1 demorou %.6f segundos para rodar \n", tdv.slowSum( interator ));
 				  System.out.printf("O processo 2 demorou %.6f segundos para rodar \n", tdv.fastSum( interator ));
 				break;
+			  case 4:
+				  
+				break;
 			  default:
 				  System.out.println("Eita");
 			}
