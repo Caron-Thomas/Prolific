@@ -4,55 +4,55 @@ import java.io.*;
 
 public class ExampleTryWithResources {
 
-    private static final String MY_FILE = "/Users/thomas-al" + File.separator + "exemple-file.txt";
-    public ExampleTryWithResources() {
+  private static final String MY_FILE = "/Users/thomas-al" + File.separator + "exemple-file.txt";
 
-        try {
-            writeFileUsingIO();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+  public ExampleTryWithResources() {
 
-        readFileUsingIO();
+    try {
+      writeFileUsingIO();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
     }
 
-    private void readFileUsingIO() {
+    readFileUsingIO();
+  }
 
-        try {
-            final InputStream input = new FileInputStream(MY_FILE);
+  private void readFileUsingIO() {
 
-            int content;
+    try {
+      final InputStream input = new FileInputStream(MY_FILE);
 
-            while ((content = input.read()) != -1) {
-                System.out.print((char) content);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+      int content;
+
+      while ((content = input.read()) != -1) {
+        System.out.print((char) content);
+      }
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  private void writeFileUsingIO() throws IOException {
+
+    final File file = new File(MY_FILE);
+    boolean fileIsCreated = false;
+
+    if (!file.exists()) {
+      fileIsCreated = file.createNewFile();
     }
 
-    private void writeFileUsingIO() throws IOException {
+    if (fileIsCreated) {
 
-        final File file = new File(MY_FILE);
-        boolean fileIsCreated = false;
+      final OutputStream output = new FileOutputStream(file);
 
-        if (!file.exists()) {
-            fileIsCreated = file.createNewFile();
-        }
+      output.write("Ola Mundo! Tipo Guanabara!!".getBytes("UTF-8"));
+      output.close();
 
-        if (fileIsCreated) {
-
-            final OutputStream output = new FileOutputStream(file);
-
-            output.write("Ola Mundo! Tipo Guanabara!!".getBytes("UTF-8"));
-            output.close();
-
-            System.out.println("Deu certo... em principio");
-        }
+      System.out.println("Deu certo... em principio");
     }
+  }
 
-    public static void main(String[] args) {
-        new ExampleTryWithResources();
-    }
-
+  public static void main(String[] args) {
+    new ExampleTryWithResources();
+  }
 }
